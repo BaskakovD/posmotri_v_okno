@@ -8,18 +8,6 @@ html {
   block-size: 100%;
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
-}
-
 h1,
 h2,
 h3,
@@ -79,6 +67,7 @@ ol {
 .result__video-container {
   position: relative;
   inline-size: 711px;
+  height: 386px;
   margin: 0 0 11px;
 }
 
@@ -116,12 +105,11 @@ ol {
   cursor: pointer;
 }
 
-.search-form__label:hover {
-  text-decoration: underline 1px #FFF;
-  text-underline-offset: 5px;
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
 }
 
-.search-form__label:focus-visible {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #FFF;
   outline-offset: 1px;
 }
@@ -153,10 +141,6 @@ ol {
 }
 
 .search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__textfield:focus-visible {
   outline: none;
 }
 
@@ -236,10 +220,12 @@ ol {
 .content__list {
   position: relative;
   overflow-y: scroll;
-  scrollbar-width: none;
+  scrollbar-width: auto;
   block-size: 298px;
 }
 
+/* Удаляю scrollbar как в макете */
+/* https://caniuse.com/?search=webkit-scrollbar */
 .content__list::-webkit-scrollbar {
   display: none;
 }
@@ -274,12 +260,6 @@ ol {
   outline: 1px solid #FFF;
 }
 
-
-.content__card-link:focus-visible {
-  margin: 2px;
-  border: 1px solid white;
-}
-
 .content__card-link_current {
   background: #545050;
 }
@@ -294,8 +274,7 @@ ol {
   color: #FFF;
   font-weight: 400;
   line-height: 16.2px;
-  object-fit: cover;
-  object-position: center;
+  width: 200px;
 }
 
 .content__video-card-title {
@@ -320,7 +299,5 @@ ol {
 }
 
 .more-button {
-  background-color: transparent;
   width: 399px;
-  cursor: pointer;
 }
